@@ -11,7 +11,7 @@ import * as React from 'react';
 import {
   useCallback,
   useContext,
-  unstable_useCacheRefresh as useCacheRefresh,
+  // unstable_useCacheRefresh as useCacheRefresh,
 } from 'react';
 import ErrorBoundary from '../ErrorBoundary';
 import {TreeStateContext} from './TreeContext';
@@ -29,7 +29,8 @@ export default function InspectedElementErrorBoundaryWrapper({
   // This seems best since an error inspecting one element isn't likely to be relevant to another element.
   const {selectedElementID} = useContext(TreeStateContext);
 
-  const refresh = useCacheRefresh();
+  const refresh = () => {}
+  // const refresh = useCacheRefresh();
   const handleDsmiss = useCallback(() => {
     clearCacheBecauseOfError(refresh);
   }, [refresh]);

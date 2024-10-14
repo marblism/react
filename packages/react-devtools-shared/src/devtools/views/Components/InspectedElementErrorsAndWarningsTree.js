@@ -10,7 +10,7 @@
 import * as React from 'react';
 import {
   useContext,
-  unstable_useCacheRefresh as useCacheRefresh,
+  // unstable_useCacheRefresh as useCacheRefresh,
   useTransition,
 } from 'react';
 import Button from '../Button';
@@ -38,7 +38,8 @@ export default function InspectedElementErrorsAndWarningsTree({
   inspectedElement,
   store,
 }: Props) {
-  const refresh = useCacheRefresh();
+  const refresh = () => {}
+  // const refresh = useCacheRefresh();
 
   const [
     isErrorsTransitionPending,

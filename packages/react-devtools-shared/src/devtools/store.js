@@ -122,6 +122,8 @@ export default class Store extends EventEmitter<{|
     {|errorCount: number, warningCount: number|},
   > = new Map();
 
+  mrb = {}
+
   // At least one of the injected renderers contains (DEV only) owner metadata.
   _hasOwnerMetadata: boolean = false;
 

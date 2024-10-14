@@ -30,6 +30,7 @@ import {InspectedElementContextController} from './InspectedElementContext';
 import {ModalDialog} from '../ModalDialog';
 import SettingsModal from 'react-devtools-shared/src/devtools/views/Settings/SettingsModal';
 import {NativeStyleContextController} from './NativeStyleEditor/context';
+import { StoreContext } from '../context';
 
 import styles from './Components.css';
 
@@ -159,13 +160,13 @@ function Components(_: {||}) {
           onMouseLeave={onResizeEnd}
           onMouseUp={onResizeEnd}>
           <Fragment>
-            <div ref={resizeElementRef} className={styles.TreeWrapper}>
+            <div id="mrb-tree" ref={resizeElementRef} className={styles.TreeWrapper}>
               <Tree />
             </div>
             <div className={styles.ResizeBarWrapper}>
               <div onMouseDown={onResizeStart} className={styles.ResizeBar} />
             </div>
-            <div className={styles.InspectedElementWrapper}>
+            <div id="mrb-inspected-element" className={styles.InspectedElementWrapper}>
               <NativeStyleContextController>
                 <InspectedElementErrorBoundary>
                   <Suspense fallback={<Loading />}>

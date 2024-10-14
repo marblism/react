@@ -131,6 +131,13 @@ export default function Element({data, index, style}: Props) {
     className = styles.HoveredElement;
   }
 
+  let styleBuilt = {...style}
+  
+  if (store?.mrb?.isTreeElement) {
+    const styleMrb = store.mrb.isTreeElement({ element })
+    styleBuilt = { ...styleBuilt, ...styleMrb }
+  }
+
   return (
     <div
       className={className}
@@ -138,7 +145,7 @@ export default function Element({data, index, style}: Props) {
       onMouseLeave={handleMouseLeave}
       onClick={handleClick}
       onDoubleClick={handleDoubleClick}
-      style={style}
+      style={styleBuilt}
       data-testname="ComponentTreeListItem"
       data-depth={depth}>
       {/* This wrapper is used by Tree for measurement purposes. */}

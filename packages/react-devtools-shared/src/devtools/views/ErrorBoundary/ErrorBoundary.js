@@ -179,21 +179,29 @@ export default class ErrorBoundary extends Component<Props, State> {
         );
       } else {
         return (
-          <ErrorView
-            callStack={callStack}
-            componentStack={componentStack}
-            dismissError={
-              canDismissProp || canDismissState ? this._dismissError : null
+          <CaughtErrorView
+            errorMessage={errorMessage || 'Encountered an unknown error'}
+            info={
+              <>
+                React DevTools encountered an unknown error.
+              </>
             }
-            errorMessage={errorMessage}>
-            <Suspense fallback={<SearchingGitHubIssues />}>
-              <SuspendingErrorView
-                callStack={callStack}
-                componentStack={componentStack}
-                errorMessage={errorMessage}
-              />
-            </Suspense>
-          </ErrorView>
+          />
+          // <ErrorView
+          //   callStack={callStack}
+          //   componentStack={componentStack}
+          //   dismissError={
+          //     canDismissProp || canDismissState ? this._dismissError : null
+          //   }
+          //   errorMessage={errorMessage}>
+          //   <Suspense fallback={<SearchingGitHubIssues />}>
+          //     <SuspendingErrorView
+          //       callStack={callStack}
+          //       componentStack={componentStack}
+          //       errorMessage={errorMessage}
+          //     />
+          //   </Suspense>
+          // </ErrorView>
         );
       }
     }
