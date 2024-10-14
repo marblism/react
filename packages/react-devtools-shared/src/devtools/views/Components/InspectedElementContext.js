@@ -13,7 +13,7 @@ import * as React from 'react';
 import {
   createContext,
   startTransition,
-  unstable_useCacheRefresh as useCacheRefresh,
+  // unstable_useCacheRefresh as useCacheRefresh,
   useCallback,
   useContext,
   useEffect,
@@ -78,7 +78,8 @@ export function InspectedElementContextController({
   // TODO (Webpack 5) Hopefully we can remove this indirection once the Webpack 5 upgrade is completed.
   const hookNamesModuleLoader = useContext(HookNamesModuleLoaderContext);
 
-  const refresh = useCacheRefresh();
+  // const refresh = useCacheRefresh();
+  const refresh = () => {}
 
   // Temporarily stores most recently-inspected (hydrated) path.
   // The transition that updates this causes the component to re-render and ask the cache->backend for the new path.
@@ -243,6 +244,12 @@ export function InspectedElementContextController({
     state,
     bridgeIsAlive,
   ]);
+
+  useEffect(() => {
+    if (store?.mrb?.onChangeElementInspected) {
+      store.mrb.onChangeElementInspected(inspectedElement)
+    }
+  }, [inspectedElement])
 
   const value = useMemo<Context>(
     () => ({

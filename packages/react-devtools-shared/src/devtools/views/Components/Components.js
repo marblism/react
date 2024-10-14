@@ -156,7 +156,7 @@ function Components(_: {}) {
           onMouseLeave={onResizeEnd}
           onMouseUp={onResizeEnd}>
           <Fragment>
-            <div ref={resizeElementRef} className={styles.TreeWrapper}>
+            <div id="mrb-tree" ref={resizeElementRef} className={styles.TreeWrapper}>
               <Tree />
             </div>
             <div className={styles.ResizeBarWrapper}>

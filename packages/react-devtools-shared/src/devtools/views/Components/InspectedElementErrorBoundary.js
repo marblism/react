@@ -9,13 +9,13 @@
 
 import * as React from 'react';
 import {
-  useCallback,
+  // useCallback,
   useContext,
-  unstable_useCacheRefresh as useCacheRefresh,
+  // unstable_useCacheRefresh as useCacheRefresh,
 } from 'react';
 import ErrorBoundary from '../ErrorBoundary';
 import {TreeStateContext} from './TreeContext';
-import {clearCacheBecauseOfError} from '../../../inspectedElementCache';
+// import {clearCacheBecauseOfError} from '../../../inspectedElementCache';
 import styles from './InspectedElementErrorBoundary.css';
 
 type WrapperProps = {
@@ -29,10 +29,11 @@ export default function InspectedElementErrorBoundaryWrapper({
   // This seems best since an error inspecting one element isn't likely to be relevant to another element.
   const {inspectedElementID} = useContext(TreeStateContext);
 
-  const refresh = useCacheRefresh();
-  const handleDsmiss = useCallback(() => {
-    clearCacheBecauseOfError(refresh);
-  }, [refresh]);
+  // const refresh = useCacheRefresh();
+  // const handleDsmiss = useCallback(() => {
+  //   clearCacheBecauseOfError(refresh);
+  // }, [refresh]);
+  const handleDsmiss = () => {}
 
   return (
     <div className={styles.Wrapper}>

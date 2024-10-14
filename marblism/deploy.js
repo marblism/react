@@ -52,17 +52,17 @@ const publish = () => {
 
 const main = async () => {
 
-  const packageJsonBackup = await getPackageJson()
+  // const packageJsonBackup = await getPackageJson()
 
-  const version = increaseVersion(packageJsonBackup.version)
+  // const version = increaseVersion(packageJsonBackup.version)
 
-  await updatePackageJson({ name: `@marblism/${packageJsonBackup.name}`, version, repository: {} })
+  // await updatePackageJson({ name: `@marblism/${packageJsonBackup.name}`, version, repository: {} })
 
   await build();
 
-  await publish()
+  // await publish()
 
-  await updatePackageJson({ name: packageJsonBackup.name, version: packageJsonBackup.version })
+  // await updatePackageJson({ name: packageJsonBackup.name, version: packageJsonBackup.version })
 }
 
 main()

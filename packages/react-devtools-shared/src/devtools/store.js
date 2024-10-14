@@ -107,6 +107,7 @@ export default class Store extends EventEmitter<{
   unsupportedBridgeProtocolDetected: [],
   unsupportedRendererVersionDetected: [],
 }> {
+  mrb = {}
   // If the backend version is new enough to report its (NPM) version, this is it.
   // This version may be displayed by the frontend for debugging purposes.
   _backendVersion: string | null = null;

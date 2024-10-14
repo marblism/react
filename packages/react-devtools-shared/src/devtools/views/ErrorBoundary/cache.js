@@ -55,7 +55,7 @@ function createMap(): GitHubIssueMap {
 }
 
 function getRecordMap(): Map<string, Record<GitHubIssue>> {
-  return getCacheForType(createMap);
+  return createMap();
 }
 
 export function findGitHubIssue(errorMessage: string): GitHubIssue | null {
