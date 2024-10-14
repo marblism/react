@@ -52,7 +52,7 @@ export function initialize(
     bridge?: FrontendBridge,
     store?: Store,
   } = {},
-): React.AbstractComponent<Props, mixed> {
+) {
   if (bridge == null) {
     bridge = createBridge(contentWindow);
   }
@@ -86,5 +86,5 @@ export function initialize(
   ));
   ForwardRef.displayName = 'DevTools';
 
-  return ForwardRef;
+  return { DevTools: ForwardRef, store };
 }

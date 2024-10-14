@@ -25,6 +25,7 @@ import SettingsModal from 'react-devtools-shared/src/devtools/views/Settings/Set
 import {NativeStyleContextController} from './NativeStyleEditor/context';
 
 import styles from './Components.css';
+import { StoreContext } from '../context';
 
 type Orientation = 'horizontal' | 'vertical';
 
@@ -46,6 +47,7 @@ type ResizeState = {
 };
 
 function Components(_: {}) {
+
   const wrapperElementRef = useRef<null | HTMLElement>(null);
   const resizeElementRef = useRef<null | HTMLElement>(null);
 
@@ -143,6 +145,7 @@ function Components(_: {}) {
     };
   }
 
+
   return (
     <SettingsModalContextController>
       <OwnersListContextController>
@@ -159,7 +162,7 @@ function Components(_: {}) {
             <div className={styles.ResizeBarWrapper}>
               <div onMouseDown={onResizeStart} className={styles.ResizeBar} />
             </div>
-            <div className={styles.InspectedElementWrapper}>
+            <div id="mrb-inspected-element" className={styles.InspectedElementWrapper}>
               <NativeStyleContextController>
                 <InspectedElementErrorBoundary>
                   <InspectedElementContextController>
